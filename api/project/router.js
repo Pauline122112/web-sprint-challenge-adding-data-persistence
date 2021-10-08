@@ -5,23 +5,20 @@ const Project = require('../project/model')
 
 const router = express.Router()
 
-router.get("/", (_, res) => {
+router.get('/', (req, res, next) => {
 	Project.getProjects()
-		.then((recipes) => {
-			res.status(200).json(recipes)
-		})
-		.catch((error) => {
-			res.status(500).json({ message: error.message })
-		})
+	.then((projects) => {
+		res.status().json(projects)
+	})
+	.catch(next)
 })
 
-router.get("/:id", (req, res) => {
+router.post('/', async (req, res, next) => {
 	try {
-		Project.getProjectById(req.params.id).then((recipe) => {
-			res.status(200).json(recipe)
-		})
+	const possibleProject = await Project.newProject(req.body)
+	res.status(201).json(possibleProject)
 	} catch (error) {
-		res.status(500).json({ message: error.message })
+		next(error)
 	}
 })
 
