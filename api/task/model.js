@@ -1,5 +1,5 @@
 // build your `Task` model here
-const db = require("../../data/dbConfig");
+const db = require("../../data/dbConfig")
 
 async function getTasks() {
 	const allTasks = await db("tasks").leftOuterJoin(
@@ -18,9 +18,9 @@ async function getTasks() {
 			project_name: tasks.project_name,
 			project_description: tasks.project_description,
 		};
-		return formattedTasks;
+		return formattedTasks
 	});
-	return tasks;
+	return tasks
 }
 
 async function taskById(task_id) {

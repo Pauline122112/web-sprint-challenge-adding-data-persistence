@@ -8,18 +8,18 @@ router.get("/", (req, res, next) => {
 	resources
 		.getResources()
 		.then((resources) => {
-			res.status(200).json(resources);
+			res.status(200).json(resources)
 		})
-		.catch(next);
-});
+		.catch(next)
+})
 
 router.post("/", (req, res, next) => {
 	resources
 		.createResource(req.body)
 		.then((resource) => {
-			res.status(201).json(resource);
+			res.status(201).json(resource)
 		})
-		.catch(next);
-});
+		.catch(next)
+})
 
-module.exports = router;
+module.exports = router
