@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent",
     "start": "node index.js",
     "server": "nodemon index.js",
-    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent",
     "up": "knex migrate:up",
     "down": "knex migrate:down",
     "latest": "knex migrate:latest",
